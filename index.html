@@ -25,7 +25,7 @@ body, html {
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 16.66%;
+  width: 12.5%;
 }
 
 .tablink:hover {
@@ -93,6 +93,8 @@ body, html {
 <button class="tablink" onclick="openPage('github', this)" id="defaultOpen" title="github"><i class="fa fa-github"></i></button>
 <button class="tablink" onclick="openPage('facebook', this)"title="facebook" ><i class="fa fa-facebook"></i></button>
 <button class="tablink" onclick="openPage('slack', this)" title="slack"><i class="fa fa-slack"></i></button>
+<button class="tablink" onclick="openPage('twitter', this)" title="twitter"><i class="fa fa-twitter"></i></button>
+<button class="tablink" onclick="openPage('instagram', this)" title="instagram"><i class="fa fa-instagram"></i></button>
 <button class="tablink" onclick="openPage('linkedin', this)" title="linkedin"><i class="fa fa-linkedin"></i></button>
 <button class="tablink" onclick="openPage('stackoverflow', this)" title="stackoverflow"><i class="fa fa-stack-overflow"></i></button>
 <button class="tablink" onclick="openPage('youtube', this)" title="youtube" ><i class="fa fa-youtube"></i></button>
@@ -129,8 +131,18 @@ body, html {
   autosize
   style="display:inline-flex; width:1024px; height:1024px"></webview>
 </div>
-<div id="youtube" class="tabcontent" style="background: linear-gradient(65deg, rgb(7, 26, 82) 3%, rgb(7, 26, 82) 40%, rgb(8, 105, 114) calc(40% + 1px), rgb(8, 105, 114) 60%, rgb(23, 185, 120) calc(60% + 1px), rgb(23, 185, 120) 68%, rgb(167, 255, 131) calc(68% + 1px), rgb(167, 255, 131) 100%)">
+<div id="instagram" class="tabcontent">
+  <webview id="foo1" src="https://www.instagram.com/accounts/login/"
+  autosize
+  style="display:inline-flex; width:1024px; height:1024px"></webview>
+</div>
+<div id="youtube" class="tabcontent" >
   <webview id="foo1" src="https://www.youtube.com/?app=tab"
+  autosize
+  style="display:inline-flex; width:1024px; height:1024px"></webview>
+</div>
+<div id="twitter" class="tabcontent" >
+  <webview id="foo1" src="https://twitter.com/login"
   autosize
   style="display:inline-flex; width:1024px; height:1024px"></webview>
 </div>
