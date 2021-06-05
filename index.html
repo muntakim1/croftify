@@ -1,180 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Croftify</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 <style>
 * {box-sizing: border-box}
+body {font-family: "Lato", sans-serif; margin: 0;padding: 0;}
 
-/* Set height of body and the document to 100% */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial;
-  background-color: rgb(27, 26, 26);
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 55px;
+  height: 100vh;
+
 }
 
-/* Style tab links */
-.tablink {
-    background-color: black;
-  color: white;
-  float: left;
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding:20px;
+  width: 54px;
   border: none;
   outline: none;
+  text-align: left;
   cursor: pointer;
-  padding: 14px 16px;
+  transition: 0.3s;
   font-size: 17px;
-  width: 12.5%;
 }
 
-.tablink:hover {
-  background-color: #777;
-}
-
-/* Style the tab content (and add height:100% for full page content) */
-.tabcontent {
-  color: whitesmoke;
-  display: none;
-  height: 100%;
-  text-align: center;
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
   
 }
-::-webkit-scrollbar {
-    display: none;
-}
-.loader {
-    position: fixed;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: auto;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background: linear-gradient(rgb(255, 143, 178) 0%, rgb(167, 151, 255) 50%, rgb(0, 229, 255) 100%);
+  padding:20;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin:20;
 }
 
-.loader {
-    height: 100%;
-    width: 100%;
-}
-
-.loader.hidden {
-    animation: fadeOut 2s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeOut {
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-.thumb {
-    height: auto;
-    border: 1px solid black;
-    margin: 10px;
-}
-.alert{
-  height: 300px;
-  width: 300px;
-
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  margin-right: -15px;
+  width: 100vh;
+  height: 100vh;
 }
 </style>
 </head>
 <body>
-    <div class="loader">
-        <img src="./assets/loader.gif" width="100%" height="100%" alt="Loading..."  />
-    </div>
-<div>
-<button class="tablink" onclick="openPage('github', this)" id="defaultOpen" title="github"><i class="fa fa-github"></i></button>
-<button class="tablink" onclick="openPage('facebook', this)"title="facebook" ><i class="fa fa-facebook"></i></button>
-<button class="tablink" onclick="openPage('slack', this)" title="slack"><i class="fa fa-slack"></i></button>
-<button class="tablink" onclick="openPage('twitter', this)" title="twitter"><i class="fa fa-twitter"></i></button>
-<button class="tablink" onclick="openPage('instagram', this)" title="instagram"><i class="fa fa-instagram"></i></button>
-<button class="tablink" onclick="openPage('linkedin', this)" title="linkedin"><i class="fa fa-linkedin"></i></button>
-<button class="tablink" onclick="openPage('stackoverflow', this)" title="stackoverflow"><i class="fa fa-stack-overflow"></i></button>
-<button class="tablink" onclick="openPage('youtube', this)" title="youtube" ><i class="fa fa-youtube"></i></button>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Whatsapp')" id="defaultOpen"><i class="fab fa-whatsapp"></i></button>
+  <button class="tablinks" onclick="openCity(event, 'GMAIL')" ><i class="fab fa-google" aria-hidden="true"></i></button>
+  <button class="tablinks" onclick="openCity(event, 'Messenger')"><i class="fab fa-facebook-messenger"></i></button>
+  <!-- <button class="tablinks" onclick="openCity(event, 'Twitter')"><i class="fab fa-twitter    "></i></button> -->
+  <button class="tablinks" onclick="openCity(event, 'Linkedin')"><i class="fab fa-linkedin"></i></button>
+  <button class="tablinks" onclick="openCity(event, 'Reddit')"><i class="fab fa-reddit" aria-hidden="true"></i></button>
+  <button class="tablinks" onclick="openCity(event, 'Medium')"><i class="fab fa-medium"></i></button>
+  <button class="tablinks" onclick="openCity(event, 'Github')"><i class="fab fa-github"></i></button>
+
+  <button class="tablinks" onclick="openCity(event, 'Stackoverflow')"><i class="fab fa-stack-overflow"></i></button>
 </div>
 
-<div id="github" class="tabcontent" style="width: 100%; height: 100%;">
-    <webview id="foo1" src="https://www.github.com/login"
-    autosize
-     style="display:inline-flex; width:1024px; height:1024px" nodeintegration></webview>
-
+<div id="GMAIL" class="tabcontent">
+      <webview style="width: 95vw;height: 100vh;" src="https://mail.google.com/" allowpopups nodeintegration useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36"></webview>
 </div>
-<div class="content"> 
-
-
-<div id="facebook" class="tabcontent">
-    <webview id="foo1" src="https://m.facebook.com/"
-    autosize
-    style="display:inline-flex; width:1024px; height:1024px"></webview>
+<div id="Whatsapp" class="tabcontent">
+      <webview style="width: 95vw;height: 100vh;" src="https://web.whatsapp.com"  useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36"></webview>
 </div>
 
-<div id="slack" class="tabcontent">
-    <webview id="foo1" src="https://slack.com/signin"
-    autosize
-    style="display:inline-flex; width:1024px; height:1024px" nodeintegration></webview>
+<div id="Messenger" class="tabcontent">
+      <webview style="width: 95vw;height: 100vh;" src="https://web.messenger.com" useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36"></webview>
 </div>
 
-<div id="linkedin" class="tabcontent">
-    <webview id="foo1" src="https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin"
-    autosize
-    style="display:inline-flex; width:1024px; height:1024px" nodeintegration></webview>
+<div id="Stackoverflow" class="tabcontent">
+      <webview style="width: 95vw;height: 100vh;" src="https://stackoverflow.com/" nodeintegration useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36"></webview>
 </div>
-<div id="stackoverflow" class="tabcontent">
-  <webview id="foo1" src="http://stackse.com/"
-  autosize
-  style="display:inline-flex; width:1024px; height:1024px"></webview>
+
+<div id="Reddit" class="tabcontent">
+      <webview style="width: 95vw;height: 100vh;" src="https://www.reddit.com/" nodeintegration useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36"></webview>
 </div>
-<div id="instagram" class="tabcontent">
-  <webview id="foo1" src="https://www.instagram.com/accounts/login/"
-  autosize
-  style="display:inline-flex; width:1024px; height:1024px"></webview>
+<div id="Linkedin" class="tabcontent">
+      <webview style="width: 95vw;height: 100vh;" src="https://www.linkedin.com/feed/" nodeintegration useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36"></webview>
 </div>
-<div id="youtube" class="tabcontent" >
-  <webview id="foo1" src="https://www.youtube.com/?app=tab"
-  autosize
-  style="display:inline-flex; width:1024px; height:1024px"></webview>
+<div id="Medium" class="tabcontent">
+      <webview style="width: 95vw;height: 100vh;" src="https://medium.com/" nodeintegration useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36"></webview>
 </div>
-<div id="twitter" class="tabcontent" >
-  <webview id="foo1" src="https://twitter.com/login"
-  autosize
-  style="display:inline-flex; width:1024px; height:1024px"></webview>
+<div id="Github" class="tabcontent">
+      <webview style="width: 95vw;height: 100vh;" src="https://github.com/" nodeintegration useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36"></webview>
 </div>
-</div>
+<!-- <div id="Twitter" class="tabcontent">
+     <webview  style="width: 95vw;height: 100vh;" src="https://twitter.com/"></webview>
+</div> -->
+
+
 <script>
-function openPage(pageName,elmnt) {
+
+// const {ipcRenderer}=require('electron')
+function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablink");
+  tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(pageName).style.display = "block";
-  
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+  document.title=cityName
 }
 
 // Get the element with id="defaultOpen" and click on it
+Notification.requestPermission();
 document.getElementById("defaultOpen").click();
-window.addEventListener("load", function () {
-    const loader = document.querySelector(".loader");
-    loader.className += " hidden"; // class "loader hidden"
-});
-
-if(navigator.onLine){
-  
-}
-else{
-  alert('No internet!! please connect to internet :)') 
-}
+// if (ipcRenderer.sendSync('synchronous-message', 'ping')==="back"){
+//   alert('back')
+// }
 </script>
    
 </body>

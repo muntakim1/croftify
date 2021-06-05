@@ -1,19 +1,26 @@
 {
   "name": "croftify",
   "version": "1.0.0",
-  "description": "This is app for multipurpose usage",
-  "main": "main.js",
+  "description": "A solution for all social media",
+  "main": "index.js",
   "scripts": {
     "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "Muntakimur Rahaman",
   "license": "ISC",
-  "dependencies": {
-    "electron-packager": "^14.2.1",
-    "is-online": "^8.2.1"
-  },
   "devDependencies": {
-    "electron": "^8.0.1"
+    "electron": "^12.0.6",
+    "electron-builder": "^22.11.3"
+  },
+  "build": {
+    "appId": "com.github.muntakim1",
+    "productName": "Croftify"
+  },
+  "dependencies": {
+    "yarn": "^1.22.10"
   }
 }
